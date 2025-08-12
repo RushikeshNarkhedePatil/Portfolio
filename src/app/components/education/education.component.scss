@@ -1,0 +1,172 @@
+.education-section {
+  background: var(--bg-primary);
+  position: relative;
+}
+
+.education-content {
+  margin-top: 40px;
+}
+
+.education-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: 30px;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+.education-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 30px;
+  box-shadow: var(--shadow-light);
+  transition: var(--transition);
+  display: flex;
+  gap: 20px;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-medium);
+    border-color: var(--primary-color);
+  }
+  
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding: 20px;
+    gap: 15px;
+  }
+}
+
+.education-icon {
+  flex-shrink: 0;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.5rem;
+  box-shadow: var(--shadow-light);
+  
+  @media (max-width: 768px) {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+  }
+}
+
+.education-details {
+  flex: 1;
+}
+
+.degree-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+  line-height: 1.3;
+  
+  @media (max-width: 768px) {
+    font-size: 1.2rem;
+  }
+}
+
+.institution-name {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--primary-color);
+  margin-bottom: 5px;
+  
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
+}
+
+.graduation-year {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  font-style: italic;
+  margin-bottom: 15px;
+}
+
+.education-description {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 20px;
+  
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+  }
+}
+
+.education-highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  
+  .highlight-item {
+    background: var(--bg-tertiary);
+    color: var(--primary-color);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    border: 1px solid var(--border-color);
+    
+    @media (max-width: 768px) {
+      font-size: 0.75rem;
+      padding: 3px 10px;
+    }
+  }
+}
+
+/* Dark mode adjustments */
+.dark-mode .education-card {
+  background: var(--bg-secondary);
+  border-color: var(--border-color);
+  
+  &:hover {
+    border-color: var(--primary-color);
+  }
+}
+
+.dark-mode .education-icon {
+  box-shadow: var(--shadow-light);
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .education-card {
+    padding: 15px;
+  }
+  
+  .education-icon {
+    width: 45px;
+    height: 45px;
+    font-size: 1.1rem;
+  }
+  
+  .degree-title {
+    font-size: 1.1rem;
+  }
+  
+  .institution-name {
+    font-size: 0.95rem;
+  }
+  
+  .education-description {
+    font-size: 0.85rem;
+  }
+  
+  .education-highlights .highlight-item {
+    font-size: 0.7rem;
+    padding: 2px 8px;
+  }
+}

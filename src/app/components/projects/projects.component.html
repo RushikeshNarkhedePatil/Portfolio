@@ -4,90 +4,62 @@
       <h2 class="section-title">My Projects</h2>
       <p class="section-subtitle">Some of my recent work</p>
     </div>
-    <div class="projects-grid">
-      <div class="project-card">
-        <div class="project-image">
-          <img src="assets/images/project1.jpg" alt="Computer Vision Application" onerror="this.src='https://via.placeholder.com/400x250/667eea/ffffff?text=Computer+Vision'">
-        </div>
-        <div class="project-content">
-          <h3 class="project-title">Computer Vision Application</h3>
-          <p class="project-description">
-            Advanced image processing application using Halcon libraries and C# WPF. 
-            Features real-time object detection and quality inspection capabilities.
-          </p>
-          <div class="project-tech">
-            <span class="tech-tag">C#</span>
-            <span class="tech-tag">WPF</span>
-            <span class="tech-tag">Halcon</span>
-            <span class="tech-tag">Computer Vision</span>
+    
+    <!-- Professional Projects -->
+    <div class="projects-subsection">
+      <h3 class="subsection-title">Professional Projects</h3>
+      <div class="projects-grid">
+        <div class="project-card" *ngFor="let project of projects">
+          <div class="project-image">
+            <img [src]="project.imageUrl" 
+                 [alt]="project.name" 
+                 (error)="onImageError($event, project.name)"
+                 (load)="onImageLoad($event, project.name)">
           </div>
-          <div class="project-links">
-            <a href="#" class="project-link">
-              <i class="fas fa-external-link-alt"></i>
-              Live Demo
-            </a>
-            <a href="#" class="project-link">
-              <i class="fab fa-github"></i>
-              Source Code
-            </a>
-          </div>
-        </div>
-      </div>
-      
-      <div class="project-card">
-        <div class="project-image">
-          <img src="assets/images/project2.jpg" alt="Machine Learning Dashboard" onerror="this.src='https://via.placeholder.com/400x250/764ba2/ffffff?text=ML+Dashboard'">
-        </div>
-        <div class="project-content">
-          <h3 class="project-title">Machine Learning Dashboard</h3>
-          <p class="project-description">
-            Interactive dashboard for monitoring and analyzing machine learning models. 
-            Built with Python and modern web technologies.
-          </p>
-          <div class="project-tech">
-            <span class="tech-tag">Python</span>
-            <span class="tech-tag">Flask</span>
-            <span class="tech-tag">TensorFlow</span>
-            <span class="tech-tag">React</span>
-          </div>
-          <div class="project-links">
-            <a href="#" class="project-link">
-              <i class="fas fa-external-link-alt"></i>
-              Live Demo
-            </a>
-            <a href="#" class="project-link">
-              <i class="fab fa-github"></i>
-              Source Code
-            </a>
+          <div class="project-content">
+            <h3 class="project-title">{{ project.name }}</h3>
+            <p class="project-description">{{ project.description }}</p>
+            <div class="project-tech">
+              <span class="tech-tag" *ngFor="let tech of project.technologies">{{ tech }}</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link">
+                <i class="fas fa-external-link-alt"></i>
+                Live Demo
+              </a>
+              <a href="#" class="project-link">
+                <i class="fab fa-github"></i>
+                Source Code
+              </a>
+            </div>
           </div>
         </div>
       </div>
-      
-      <div class="project-card">
-        <div class="project-image">
-          <img src="assets/images/project3.jpg" alt="Desktop Application Suite" onerror="this.src='https://via.placeholder.com/400x250/667eea/ffffff?text=Desktop+App'">
-        </div>
-        <div class="project-content">
-          <h3 class="project-title">Desktop Application Suite</h3>
-          <p class="project-description">
-            Comprehensive desktop application suite for industrial automation. 
-            Features data visualization, reporting, and real-time monitoring.
-          </p>
-          <div class="project-tech">
-            <span class="tech-tag">C#</span>
-            <span class="tech-tag">WPF</span>
-            <span class="tech-tag">SQL Server</span>
-            <span class="tech-tag">MVVM</span>
+    </div>
+
+    <!-- Academic Projects -->
+    <div class="projects-subsection">
+      <h3 class="subsection-title">Academic Projects</h3>
+      <div class="projects-grid">
+        <div class="project-card" *ngFor="let project of academicProjects">
+          <div class="project-image">
+            <img [src]="project.imageUrl" 
+                 [alt]="project.name"
+                 (error)="onImageError($event, project.name)"
+                 (load)="onImageLoad($event, project.name)">
           </div>
-          <div class="project-links">
-            <a href="#" class="project-link">
-              <i class="fas fa-external-link-alt"></i>
-              Live Demo
-            </a>
-            <a href="#" class="project-link">
-              <i class="fab fa-github"></i>
-              Source Code
-            </a>
+          <div class="project-content">
+            <h3 class="project-title">{{ project.name }}</h3>
+            <p class="project-description">{{ project.description }}</p>
+            <div class="project-tech">
+              <span class="tech-tag" *ngFor="let tech of project.technologies">{{ tech }}</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link">
+                <i class="fas fa-external-link-alt"></i>
+                View Details
+              </a>
+            </div>
           </div>
         </div>
       </div>

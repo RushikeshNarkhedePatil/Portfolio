@@ -12,8 +12,8 @@
           </div>
           <div class="contact-details">
             <h3>Email</h3>
-            <p>rushikesh.narkhede&#64;email.com</p>
-            <a href="mailto:rushikesh.narkhede@email.com" class="contact-link">Send Email</a>
+            <p>{{ personalInfo?.email }}</p>
+            <a [href]="'mailto:' + personalInfo?.email" class="contact-link">Send Email</a>
           </div>
         </div>
         
@@ -23,8 +23,8 @@
           </div>
           <div class="contact-details">
             <h3>Phone</h3>
-            <p>+1 (555) 123-4567</p>
-            <a href="tel:+15551234567" class="contact-link">Call Now</a>
+            <p>{{ personalInfo?.phone }}</p>
+            <a [href]="'tel:' + personalInfo?.phone" class="contact-link">Call Now</a>
           </div>
         </div>
         
@@ -34,7 +34,7 @@
           </div>
           <div class="contact-details">
             <h3>Location</h3>
-            <p>San Francisco, CA</p>
+            <p>{{ personalInfo?.address }}</p>
             <a href="#" class="contact-link">View on Map</a>
           </div>
         </div>
@@ -45,8 +45,19 @@
           </div>
           <div class="contact-details">
             <h3>LinkedIn</h3>
-            <p>linkedin.com/in/rushikesh-narkhede</p>
-            <a href="https://linkedin.com/in/rushikesh-narkhede" target="_blank" class="contact-link">Connect</a>
+            <p>{{ personalInfo?.linkedin }}</p>
+            <a [href]="'https://' + personalInfo?.linkedin" target="_blank" class="contact-link">Connect</a>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">
+            <i class="fab fa-github"></i>
+          </div>
+          <div class="contact-details">
+            <h3>GitHub</h3>
+            <p>github.com/RushikeshNarkhedePatil</p>
+            <a [href]="personalInfo?.github" target="_blank" class="contact-link">View Profile</a>
           </div>
         </div>
       </div>

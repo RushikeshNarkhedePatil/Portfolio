@@ -10,10 +10,8 @@ import { CommonModule } from '@angular/common';
 })
 export class NavigationComponent implements OnInit {
   isMenuOpen = false;
-  isDarkMode = false;
 
   ngOnInit() {
-    this.loadTheme();
     this.setupScrollEffect();
   }
 
@@ -28,40 +26,7 @@ export class NavigationComponent implements OnInit {
     }
   }
 
-  toggleTheme() {
-    this.isDarkMode = !this.isDarkMode;
-    if (typeof document !== 'undefined') {
-      document.body.classList.toggle('dark-mode', this.isDarkMode);
-    }
-    if (typeof localStorage !== 'undefined') {
-      localStorage.setItem('theme', this.isDarkMode ? 'dark' : 'light');
-    }
-    
-    const themeToggle = document.getElementById('themeToggle');
-    if (themeToggle) {
-      const icon = themeToggle.querySelector('i');
-      if (icon) {
-        icon.className = this.isDarkMode ? 'fas fa-sun' : 'fas fa-moon';
-      }
-    }
-  }
-
-  private loadTheme() {
-    if (typeof window !== 'undefined' && typeof localStorage !== 'undefined') {
-      const savedTheme = localStorage.getItem('theme');
-      if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-        this.isDarkMode = true;
-        document.body.classList.add('dark-mode');
-        const themeToggle = document.getElementById('themeToggle');
-        if (themeToggle) {
-          const icon = themeToggle.querySelector('i');
-          if (icon) {
-            icon.className = 'fas fa-sun';
-          }
-        }
-      }
-    }
-  }
+  
 
   private setupScrollEffect() {
     if (typeof window !== 'undefined') {
@@ -70,14 +35,8 @@ export class NavigationComponent implements OnInit {
         if (navbar) {
           if (window.scrollY > 50) {
             navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-            if (this.isDarkMode) {
-              navbar.style.background = 'rgba(26, 32, 44, 0.98)';
-            }
           } else {
             navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-            if (this.isDarkMode) {
-              navbar.style.background = 'rgba(26, 32, 44, 0.95)';
-            }
           }
         }
       });

@@ -4,12 +4,11 @@
     <div class="home-content">
       <div class="home-text">
         <h1 class="home-title">
-          Hi, I'm <span class="highlight">Rushikesh Narkhede</span>
+          Hi, I'm <span class="highlight">{{ personalInfo?.name }}</span>
         </h1>
-        <h2 class="home-subtitle">C# WPF Developer | Computer Vision Engineer</h2>
+        <h2 class="home-subtitle">{{ personalInfo?.title }}</h2>
         <p class="home-description">
-          Passionate software developer with 2.9 years of experience in desktop application development, 
-          computer vision, and machine learning integration. Specialized in WPF, Halcon, and deep learning solutions.
+          {{ personalInfo?.description }}
         </p>
         <div class="home-buttons">
           <a href="#projects" class="btn btn-primary">View My Work</a>
@@ -22,7 +21,17 @@
       </div>
       <div class="home-image">
         <div class="profile-image">
-          <img src="assets/images/profile-photo.jpg" alt="Rushikesh Narkhede - Software Developer" class="profile-img">
+          <img 
+            src="assets/profile-photo.jpg" 
+            alt="Rushikesh Narkhede - Software Developer" 
+            class="profile-img"
+            onload="this.nextElementSibling.style.display='none';"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          >
+          <div class="profile-placeholder" style="display: none;">
+            <div class="profile-initials">RN</div>
+            <div class="profile-name">Rushikesh Narkhede</div>
+          </div>
         </div>
       </div>
     </div>

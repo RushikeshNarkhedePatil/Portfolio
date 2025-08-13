@@ -4,85 +4,42 @@
       <h2 class="section-title">Education & Certifications</h2>
       <p class="section-subtitle">My academic background</p>
     </div>
+    
+    <!-- Education -->
     <div class="education-content">
+      <h3 class="subsection-title">Education</h3>
       <div class="education-grid">
-        <div class="education-card">
+        <div class="education-card" *ngFor="let edu of education">
           <div class="education-icon">
             <i class="fas fa-graduation-cap"></i>
           </div>
           <div class="education-details">
-            <h3 class="degree-title">Bachelor of Engineering in Computer Science</h3>
-            <h4 class="institution-name">University of Technology</h4>
-            <p class="graduation-year">2017 - 2021</p>
-            <p class="education-description">
-              Graduated with distinction. Specialized in software engineering and computer vision. 
-              Completed final year project on "Real-time Object Detection using Deep Learning".
-            </p>
+            <h3 class="degree-title">{{ edu.degree }}</h3>
+            <h4 class="institution-name">{{ edu.institution }}</h4>
+            <p class="graduation-year">{{ edu.year }}</p>
+            <p class="education-description">{{ edu.description }}</p>
             <div class="education-highlights">
-              <span class="highlight-item">GPA: 3.8/4.0</span>
-              <span class="highlight-item">Dean's List</span>
-              <span class="highlight-item">Project Excellence Award</span>
+              <span class="highlight-item">{{ edu.university }}</span>
+              <span class="highlight-item">{{ edu.percentage }}</span>
             </div>
           </div>
         </div>
-        
-        <div class="education-card">
+      </div>
+    </div>
+
+    <!-- Certifications -->
+    <div class="education-content">
+      <h3 class="subsection-title">Certifications</h3>
+      <div class="education-grid">
+        <div class="education-card" *ngFor="let cert of certificates">
           <div class="education-icon">
             <i class="fas fa-certificate"></i>
           </div>
           <div class="education-details">
-            <h3 class="degree-title">Microsoft Certified: Azure Developer Associate</h3>
-            <h4 class="institution-name">Microsoft</h4>
-            <p class="graduation-year">2022</p>
-            <p class="education-description">
-              Certified in developing and maintaining cloud applications and services on Microsoft Azure. 
-              Expertise in Azure DevOps, App Services, and cloud-native development.
-            </p>
-            <div class="education-highlights">
-              <span class="highlight-item">Azure DevOps</span>
-              <span class="highlight-item">Cloud Development</span>
-              <span class="highlight-item">Microservices</span>
-            </div>
-          </div>
-        </div>
-        
-        <div class="education-card">
-          <div class="education-icon">
-            <i class="fas fa-award"></i>
-          </div>
-          <div class="education-details">
-            <h3 class="degree-title">Computer Vision Specialist Certification</h3>
-            <h4 class="institution-name">Halcon Academy</h4>
-            <p class="graduation-year">2021</p>
-            <p class="education-description">
-              Advanced certification in computer vision and image processing using Halcon libraries. 
-              Covers machine vision algorithms, deep learning integration, and industrial applications.
-            </p>
-            <div class="education-highlights">
-              <span class="highlight-item">Image Processing</span>
-              <span class="highlight-item">Machine Vision</span>
-              <span class="highlight-item">Industrial Applications</span>
-            </div>
-          </div>
-        </div>
-        
-        <div class="education-card">
-          <div class="education-icon">
-            <i class="fas fa-book"></i>
-          </div>
-          <div class="education-details">
-            <h3 class="degree-title">Deep Learning Specialization</h3>
-            <h4 class="institution-name">Coursera</h4>
-            <p class="graduation-year">2020</p>
-            <p class="education-description">
-              Comprehensive course covering neural networks, convolutional networks, sequence models, 
-              and practical applications in computer vision and natural language processing.
-            </p>
-            <div class="education-highlights">
-              <span class="highlight-item">Neural Networks</span>
-              <span class="highlight-item">CNN & RNN</span>
-              <span class="highlight-item">TensorFlow</span>
-            </div>
+            <h3 class="degree-title">{{ cert.name }}</h3>
+            <h4 class="institution-name">{{ cert.issuer }}</h4>
+            <p class="graduation-year">{{ cert.year }}</p>
+            <p class="education-description">{{ cert.description }}</p>
           </div>
         </div>
       </div>

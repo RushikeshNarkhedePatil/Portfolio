@@ -1,5 +1,6 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { PortfolioDataService, Skill } from '../../services/portfolio-data.service';
 
 @Component({
   selector: 'app-skills',
@@ -8,33 +9,26 @@ import { CommonModule } from '@angular/common';
   templateUrl: './skills.component.html',
   styleUrl: './skills.component.scss'
 })
-export class SkillsComponent implements OnInit, AfterViewInit {
+export class SkillsComponent implements OnInit {
+  skills: Skill[] = [];
 
-  ngOnInit() {
-    // Component initialization
+  constructor(private portfolioDataService: PortfolioDataService) {}
+
+  ngOnInit(): void {
+    this.skills = this.portfolioDataService.getSkills();
   }
 
-  ngAfterViewInit() {
-    this.animateSkillBars();
+  getSkillPercentage(level: string): number {
+    // Extract percentage from string like "90%" -> 90
+    const percentage = parseInt(level.replace('%', ''));
+    return isNaN(percentage) ? 0 : percentage;
   }
 
-  private animateSkillBars() {
-    if (typeof document !== 'undefined' && typeof IntersectionObserver !== 'undefined') {
-      const skillBars = document.querySelectorAll('.skill-bar');
-      
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const skillBar = entry.target as HTMLElement;
-            const level = skillBar.getAttribute('data-level');
-            if (level) {
-              skillBar.style.width = level + '%';
-            }
-          }
-        });
-      }, { threshold: 0.5 });
-
-      skillBars.forEach(bar => observer.observe(bar));
-    }
+  getSkillLevelClass(level: string): string {
+    const percentage = this.getSkillPercentage(level);
+    if (percentage >= 90) return 'expert';
+    if (percentage >= 80) return 'advanced';
+    if (percentage >= 70) return 'intermediate';
+    return 'beginner';
   }
 }

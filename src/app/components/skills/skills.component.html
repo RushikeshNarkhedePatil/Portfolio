@@ -1,106 +1,29 @@
 <section id="skills" class="skills-section">
   <div class="container">
-    <div class="section-header">
-      <h2 class="section-title">Skills & Technologies</h2>
-      <p class="section-subtitle">My technical expertise</p>
+    <div class="skills-header">
+      <h2 class="skills-title">Skills & Expertise</h2>
+      <p class="skills-subtitle">Technologies and tools I work with to bring ideas to life</p>
     </div>
-    <div class="skills-content">
-      <div class="skills-category">
-        <h3 class="category-title">Programming Languages</h3>
-        <div class="skills-grid">
-          <div class="skill-item">
-            <div class="skill-icon">
-              <i class="fab fa-microsoft"></i>
-            </div>
-            <h4>C#</h4>
-            <div class="skill-level">
-              <div class="skill-bar" data-level="90"></div>
-            </div>
+    
+    <div class="skills-grid">
+      <div class="skill-item" *ngFor="let skill of skills">
+        <div class="skill-header">
+          <div class="skill-icon">
+            <i [class]="skill.icon"></i>
           </div>
-          <div class="skill-item">
-            <div class="skill-icon">
-              <i class="fab fa-python"></i>
-            </div>
-            <h4>Python</h4>
-            <div class="skill-level">
-              <div class="skill-bar" data-level="85"></div>
-            </div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-icon">
-              <i class="fab fa-js"></i>
-            </div>
-            <h4>JavaScript</h4>
-            <div class="skill-level">
-              <div class="skill-bar" data-level="75"></div>
-            </div>
+          <div class="skill-info">
+            <h3 class="skill-name">{{ skill.name }}</h3>
+            <span class="skill-category">{{ skill.category }}</span>
           </div>
         </div>
-      </div>
-      
-      <div class="skills-category">
-        <h3 class="category-title">Frameworks & Technologies</h3>
-        <div class="skills-grid">
-          <div class="skill-item">
-            <div class="skill-icon">
-              <i class="fas fa-desktop"></i>
-            </div>
-            <h4>WPF</h4>
-            <div class="skill-level">
-              <div class="skill-bar" data-level="95"></div>
+        <div class="skill-level">
+          <div class="skill-bar">
+            <div class="skill-progress" 
+                 [style.width.%]="getSkillPercentage(skill.level)"
+                 [class]="getSkillLevelClass(skill.level)">
             </div>
           </div>
-          <div class="skill-item">
-            <div class="skill-icon">
-              <i class="fas fa-eye"></i>
-            </div>
-            <h4>Halcon</h4>
-            <div class="skill-level">
-              <div class="skill-bar" data-level="90"></div>
-            </div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-icon">
-              <i class="fas fa-brain"></i>
-            </div>
-            <h4>Deep Learning</h4>
-            <div class="skill-level">
-              <div class="skill-bar" data-level="80"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="skills-category">
-        <h3 class="category-title">Tools & Platforms</h3>
-        <div class="skills-grid">
-          <div class="skill-item">
-            <div class="skill-icon">
-              <i class="fab fa-git"></i>
-            </div>
-            <h4>Git</h4>
-            <div class="skill-level">
-              <div class="skill-bar" data-level="85"></div>
-            </div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-icon">
-              <i class="fas fa-database"></i>
-            </div>
-            <h4>SQL Server</h4>
-            <div class="skill-level">
-              <div class="skill-bar" data-level="80"></div>
-            </div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-icon">
-              <i class="fas fa-cloud"></i>
-            </div>
-            <h4>Azure DevOps</h4>
-            <div class="skill-level">
-              <div class="skill-bar" data-level="75"></div>
-            </div>
-          </div>
+          <span class="skill-percentage">{{ skill.level }}</span>
         </div>
       </div>
     </div>

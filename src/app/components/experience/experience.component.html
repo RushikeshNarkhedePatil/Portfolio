@@ -6,87 +6,22 @@
     </div>
     <div class="experience-content">
       <div class="timeline">
-        <div class="timeline-item">
+        <div class="timeline-item" *ngFor="let experience of workExperience">
           <div class="timeline-marker"></div>
           <div class="timeline-content">
             <div class="experience-header">
-              <h3 class="job-title">Software Developer</h3>
-              <h4 class="company-name">Tech Solutions Inc.</h4>
-              <p class="job-period">Jan 2022 - Present</p>
+              <h3 class="job-title">{{ experience.title }}</h3>
+              <h4 class="company-name">{{ experience.company }}</h4>
+              <p class="job-period">{{ experience.period }}</p>
             </div>
             <div class="job-description">
-              <p>
-                Leading development of desktop applications using C# WPF and computer vision technologies. 
-                Implemented advanced image processing algorithms using Halcon libraries and integrated 
-                machine learning models for quality inspection systems.
-              </p>
+              <p>{{ experience.description }}</p>
               <ul class="job-achievements">
-                <li>Developed 5+ production applications with 99.9% uptime</li>
-                <li>Reduced processing time by 40% through algorithm optimization</li>
-                <li>Mentored 3 junior developers in WPF and computer vision</li>
+                <li *ngFor="let achievement of experience.achievements">{{ achievement }}</li>
               </ul>
             </div>
             <div class="job-tech">
-              <span class="tech-tag">C#</span>
-              <span class="tech-tag">WPF</span>
-              <span class="tech-tag">Halcon</span>
-              <span class="tech-tag">Machine Learning</span>
-            </div>
-          </div>
-        </div>
-        
-        <div class="timeline-item">
-          <div class="timeline-marker"></div>
-          <div class="timeline-content">
-            <div class="experience-header">
-              <h3 class="job-title">Junior Developer</h3>
-              <h4 class="company-name">Innovation Labs</h4>
-              <p class="job-period">Jun 2021 - Dec 2021</p>
-            </div>
-            <div class="job-description">
-              <p>
-                Contributed to development of industrial automation software and data visualization tools. 
-                Worked on SQL Server database design and real-time data processing applications.
-              </p>
-              <ul class="job-achievements">
-                <li>Built 3 data visualization dashboards</li>
-                <li>Optimized database queries improving performance by 25%</li>
-                <li>Collaborated with cross-functional teams on 8+ projects</li>
-              </ul>
-            </div>
-            <div class="job-tech">
-              <span class="tech-tag">C#</span>
-              <span class="tech-tag">SQL Server</span>
-              <span class="tech-tag">WPF</span>
-              <span class="tech-tag">Azure DevOps</span>
-            </div>
-          </div>
-        </div>
-        
-        <div class="timeline-item">
-          <div class="timeline-marker"></div>
-          <div class="timeline-content">
-            <div class="experience-header">
-              <h3 class="job-title">Software Engineer Intern</h3>
-              <h4 class="company-name">StartupTech</h4>
-              <p class="job-period">Jan 2021 - May 2021</p>
-            </div>
-            <div class="job-description">
-              <p>
-                Assisted in development of web applications and learned modern development practices. 
-                Contributed to frontend development using JavaScript and React.
-              </p>
-              <ul class="job-achievements">
-                <li>Developed 2 responsive web components</li>
-                <li>Participated in code reviews and agile ceremonies</li>
-                <li>Learned modern web development stack</li>
-              </ul>
-            </div>
-            <div class="job-tech">
-              <span class="tech-tag">JavaScript</span>
-              <span class="tech-tag">React</span>
-              <span class="tech-tag">HTML/CSS</span>
-              <span class="tech-tag">Git</span>
+              <span class="tech-tag" *ngFor="let tech of experience.technologies">{{ tech }}</span>
             </div>
           </div>
         </div>
